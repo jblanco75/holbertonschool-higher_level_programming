@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
 from calculator_1 import add, sub, mul, div
 
 if __name__ == '__main__':
-    n = len(sys.argv)
+    n = len(argv)
     if (n - 1) != 3:
         print('Usage: ./100-my_calculator.py <a> <operator> <b>')
         exit(1)
 
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
+    a = int(argv[1])
+    b = int(argv[3])
 
-    if sys.argv[2] == '+':
+    if argv[2] == '+':
         print('{:d} + {:d} = {:d}'.format(a, b, add(a, b)))
-    elif sys.argv[2] == '-':
+    elif argv[2] == '-':
         print('{:d} - {:d} = {:d}'.format(a, b, sub(a, b)))
-    elif sys.argv[2] == '*':
-        print('{:d} * {:d} = {:d}'.format(a, b, mul(a, b)))
-    elif sys.argv[2] == '/':
+    elif argv[2] == '*':
+        print('{} * {} = {}'.format(a, b, mul(a, b)))
+    elif argv[2] == '/':
         print('{:d} / {:d} = {:d}'.format(a, b, div(a, b)))
     else:
         print('Unknown operator. Available operators: +, -, * and /')
