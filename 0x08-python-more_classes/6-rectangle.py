@@ -72,4 +72,4 @@ class Rectangle():
     def __del__(self):
         """Destructor method for instances"""
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1A
+        Rectangle.number_of_instances -= 1
