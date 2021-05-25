@@ -1,0 +1,100 @@
+# 0-add_integer.txt
+
+===========================================================
+"""Edge case tests for function "add_integer(a, b=98):" """
+===========================================================
+
+COMMON FILE CASES:
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+
+      ---- Check that the file is executable ----
+    >>> import os
+    >>> os.access('0-add_integer.py', os.X_OK)
+    True
+
+    ---- Check for the documentation of the module ----
+    >>> len(__import__("0-add_integer").__doc__) > 10
+    True
+
+    ---- Check for the documentation of the function ----
+    >>> len(__import__("0-add_integer").add_integer.__doc__) > 10
+    True
+
+    ---- Check for pep8 style ----
+    >>> os.popen("pep8 0-add_integer.py").read()
+    ''
+
+    ---- Check for a newline at the end of the file ----
+    >>> os.popen("cat -e 0-add_integer.py | tail -1").read()[-1]
+    '\n'
+
+    ---- Check for the file has a shebang ----
+    >>> os.popen("cat 0-add_integer.py | head -1").read()
+    '#!/usr/bin/python3\n'
+
+    ---- Check that the README file exists ----
+    >>> cwd = os.getcwd()
+    >>> check_readme = cwd + '/README.md'
+    >>> os.path.exists(check_readme)
+    True
+
+COMMON USE CASES:
+
+       ---ints---
+
+       >>> add_integer(1, 2)
+       3
+
+       ---ints and negative---
+
+       >>> add_integer(56, -6)
+       50
+
+       ---float and negative---
+
+       >>> add_integer(100.3, -2)
+       98
+
+       ---int and string---
+
+       >>> add_integer(4, "School")
+       Traceback (most recent call last):
+       ...
+       TypeError: b must be an integer
+
+       ---string and string---
+
+       >>> add_integer("hol", "bie")
+       Traceback (most recent call last):
+       ...
+       TypeError: a must be an integer
+
+       ---bool and int---
+
+       >>> add_integer(True, 1)
+       Traceback (most recent call last):
+       ...
+       TypeError: a must be an integer
+
+       ---too large int---
+
+       >>> add_integer(1, 10e+1000)
+       Traceback (most recent call last):
+       ...
+       OverflowError: cannot convert float infinity to integer
+
+       ---more args given---
+
+       >>> add_integer(0, 1, 2)
+       Traceback (most recent call last):
+       ...
+       TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+       
+       ---no args given---
+
+       >>> add_integer()
+       Traceback (most recent call last):
+       ...
+       TypeError: add_integer() missing 1 required positional argument: 'a'
