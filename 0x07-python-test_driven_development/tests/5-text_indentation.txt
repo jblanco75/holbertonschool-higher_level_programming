@@ -1,0 +1,62 @@
+# 5-text_indentation.txt
+
+
+===============================================================
+"""Edge case tests for function "5-text_indentation(text):" """
+===============================================================
+
+COMMON FILE CASES:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+      ---- Check that the file is executable ----
+    >>> import os
+    >>> os.access('5-text_indentation.py', os.X_OK)
+    True
+
+    ---- Check for the documentation of the module ----
+    >>> len(__import__("5-text_indentation").__doc__) > 10
+    True
+
+    ---- Check for the documentation of the function ----
+    >>> len(__import__("5-text_indentation").text_indentation.__doc__) > 10
+    True
+
+    ---- Check for pep8 style ----
+    >>> os.popen("pep8 5-text_indentation.py").read()
+    ''
+
+    ---- Check for a newline at the end of the file ----
+    >>> os.popen("cat -e 5-text_indentation.py | tail -1").read()[-1]
+    '\n'
+
+    ---- Check for the file has a shebang ----
+    >>> os.popen("cat 5-text_indentation.py | head -1").read()
+    '#!/usr/bin/python3\n'
+
+    ---- Check that the README file exists ----
+    >>> cwd = os.getcwd()
+    >>> check_readme = cwd + '/README.md'
+    >>> os.path.exists(check_readme)
+    True
+
+
+COMMON USE CASES:
+
+
+       >>> text_indentation(5)
+       Traceback (most recent call last):
+       TypeError: text must be a string
+
+
+       >>> text_indentation("Lorem?ipsum dolor sit amet, consectetur adipiscing elit.")
+       Lorem?
+       <BLANKLINE>
+       ipsum dolor sit amet, consectetur adipiscing elit.
+       <BLANKLINE>
+
+
+       >>> text_indentation()
+       Traceback (most recent call last):
+       TypeError: text_indentation() missing 1 required positional argument: 'text'
