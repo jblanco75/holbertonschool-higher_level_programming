@@ -2,6 +2,9 @@
 """Function that returns the JSON representation of an object (string)"""
 
 
+import json
+
+
 def to_json_string(my_obj):
     """Encodes Python object into a JSON String"""
     return json.dumps(my_obj)
