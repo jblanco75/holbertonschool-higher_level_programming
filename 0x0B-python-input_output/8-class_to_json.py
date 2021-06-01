@@ -8,4 +8,4 @@ JSON serialization of an object"""
 
 def class_to_json(obj):
     """returns the dictionary description"""
-    return (object.__dict__)
+    return (obj.__dict__)
