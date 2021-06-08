@@ -32,3 +32,9 @@ class Base:
                 list_to_save.append(cls.to_dictionary(elem))
         with open(filename, mode="w", encoding="utf-8") as json_file:
             json_file.write(cls.to_json_string(list_to_save))
+
+    def from_json_string(json_string):
+        """Returns the list of the JSON string representation"""
+        ret_list = []
+        if json_string is not None:
+            return json.loads(json_string)
