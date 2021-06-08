@@ -45,4 +45,4 @@ class Base:
         """Returns instance with all attributes already set"""
         dummy = cls(1, 1)
         dummy.update(**dictionary)
-        return (dummy)
+        return dummy
