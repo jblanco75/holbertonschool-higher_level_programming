@@ -33,8 +33,9 @@ class Base:
         with open(filename, mode="w", encoding="utf-8") as json_file:
             json_file.write(cls.to_json_string(list_to_save))
 
+    @staticmethod
     def from_json_string(json_string):
         """Returns the list of the JSON string representation"""
         if json_string is None:
-            return ret_list = []
+            return ([])
         return json.loads(json_string)
