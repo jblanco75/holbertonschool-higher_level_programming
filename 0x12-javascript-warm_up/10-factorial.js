@@ -1,14 +1,10 @@
 #!/usr/bin/node
 
 function factorial (n) {
-  let answer = 1;
   if (isNaN(n) || n === 1) {
-    return answer;
+    return 1;
   } else {
-    for (let i = n; i >= 1; i--) {
-      answer *= i;
+    return n * factorial(n - 1);
     }
-    return answer;
-  }
 }
 console.log(factorial(process.argv[2]));
