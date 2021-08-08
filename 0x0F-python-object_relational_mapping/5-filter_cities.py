@@ -14,12 +14,11 @@ if __name__ == '__main__':
                            passwd=sys.argv[2],
                            db=sys.argv[3])
     cur = conn.cursor()
-    cur.execute(("SELECT cities.name FROM states\
+    cur.execute("SELECT cities.name FROM states\
              INNER JOIN cities ON states.id=cities.state_id\
              WHERE states.name LIKE BINARY %s\
-             ORDER BY cities.id ASC"), (sys.argv[4], ))
+             ORDER BY cities.id ASC", (sys.argv[4], ))
     query_rows = cur.fetchall()
-    for row in query_rows:
-        print(row)
+    print(", ".join([row[0] for row in query_rows]))
     cur.close()
     conn.close()
