@@ -7,4 +7,4 @@ def find_peak(list_of_integers):
     if not list_of_integers:
         return None
     else:
-        return sorted(list_of_integers)[-1]
+        return max(list_of_integers)
