@@ -4,14 +4,14 @@
 
 
 import requests
-import sys
+from sys import argv
 
 
 if __name__ == '__main__':
-    q = sys.argv[1] if len(argv) > 1 else ""
+    q = argv[1] if len(argv) > 1 else ""
+    url = 'http://0.0.0.0:5000/search_user'
     try:
-        r = requests.post('http://0.0.0.0:5000/search_user',
-                          data={'q': q}).json()
+        r = requests.post(url, data={'q': q}).json()
         if 'id' in r and 'name' in r:
             print("[{}] {}".format(r['id'], r['name']))
         else:
