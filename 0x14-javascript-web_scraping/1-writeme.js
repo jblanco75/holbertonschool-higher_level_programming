@@ -3,6 +3,6 @@
 
 const fs = require('fs');
 
-fs.writefile(process.argv[2], 'utf8', (err, data) => {
-  return err ? console.log(err) : console.log(data);
+fs.writefile(process.argv[2], process.argv[3], 'utf8', (err, data) => {
+  if (err) throw err;
 });
