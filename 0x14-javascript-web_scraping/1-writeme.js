@@ -4,5 +4,7 @@
 const fs = require('fs');
 
 fs.writefile(process.argv[2], process.argv[3], 'utf8', err => {
-  if (err) throw err;
+  if (err) {
+    console.log(err);
+  }
 });
