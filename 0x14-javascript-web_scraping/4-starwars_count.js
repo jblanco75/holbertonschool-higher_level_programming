@@ -6,15 +6,18 @@ const request = require('request');
 const url = process.argv[2];
 
 request.get(url, function (err, response, body) {
-  let count = 0;
   if (err) {
     console.log(err);
-  }
-  const movie = JSON.parse(body);
-  for (let i = 0; movie.results[i] !== undefined; i++) {
-    if (movie.results[i].characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
-      count += 1;
+  } else {
+    const movie = JSON.parse(body).results;
+    let count = 0;
+    for (const mov of movie) {
+      for (const character of mov.characters) {
+        if (character.includes('/18/')) {
+          count++;
+        }
+      }
     }
+    console.log(count);
   }
-  console.log(count);
 });
